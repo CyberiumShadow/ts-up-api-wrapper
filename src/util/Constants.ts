@@ -1,4 +1,4 @@
-import Package from '../../package.json';
+const Package = require('../../package.json');
 
 export const UserAgent = `Node.JS Up API Wrapper (${Package.repository}, ${Package.version})`;
 
