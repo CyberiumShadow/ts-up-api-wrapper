@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import { ApiURL } from '../util/Constants';
 
 import type { Response } from 'node-fetch';
+import type { AccountResponse } from '../types';
 
 const headers = {
 	Authorization: `Bearer ${process.env.UP_PAT}`
@@ -14,10 +15,10 @@ export const getAllAccounts = async (): Promise<any> => {
 	return response.json();
 }
 
-export const getAccount = async (id: string): Promise<any> => {
+export const getAccount = async (id: string): Promise<AccountResponse> => {
 	const response: Response = await fetch(`${ApiURL}/accounts/${id}`, { headers });
 
-	return response.json();
+	return response.json()
 }
 
 export const getAllTransactions = async (): Promise<any> => {
