@@ -1,0 +1,7 @@
+{
+	"extends": "@skyra/eslint-config",
+	"compilerOptions": {
+		"outDir": "dist"
+	},
+	"include": ["src"]
+}
