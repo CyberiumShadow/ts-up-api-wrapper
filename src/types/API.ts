@@ -1,6 +1,6 @@
 import type { AccountResource } from './Account';
 import type { TransactionResource } from './Transaction';
-import type { WebhookResource } from './Webhook';
+import type { WebhookResource, WebhookEventResource, WebhookDeliveryLogResource } from './Webhook';
 
 export interface APIResponse {
 	data?: AccountResource | AccountResource[] | TransactionResource | TransactionResource[] | WebhookResource | WebhookEventResource | WebhookDeliveryLogResource[];
