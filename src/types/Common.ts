@@ -17,3 +17,9 @@ export interface DataWithLink {
         related: string;
     };
 }
+
+export interface MoneyObject {
+    currencyCode:     string;
+    value:            string;
+    valueInBaseUnits: number;
+}
