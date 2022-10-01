@@ -1,7 +1,3 @@
 {
-	"extends": "@skyra",
-	"env": {
-		"es6": true,
-		"node": true
-	}
+	"extends": "@sapphire"
 }
