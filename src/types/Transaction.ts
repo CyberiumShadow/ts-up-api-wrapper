@@ -1,19 +1,24 @@
 // Most typings here are pulled from https://github.com/epetousis/up-webhook-ingester/blob/master/src/upbank/transaction.d.ts
 
-import { NullableDataWithLink, DataWithLink, MoneyObject, SelfLink } from './Common';
+import type {
+	NullableDataWithLink,
+	DataWithLink,
+	MoneyObject,
+	SelfLink,
+} from "./Common";
 
 export interface TransactionResource {
 	id: string;
-	type: 'transactions';
+	type: "transactions";
 	attributes: TransactionAttributes;
-	links?: SelfLink
+	links?: SelfLink;
 	relationships: {
-		account: DataWithLink
-		transferAccount: NullableDataWithLink
-		category: NullableDataWithLink
-		parentCategory: NullableDataWithLink
-		tags: DataWithLink
-	}
+		account: DataWithLink;
+		transferAccount: NullableDataWithLink;
+		category: NullableDataWithLink;
+		parentCategory: NullableDataWithLink;
+		tags: DataWithLink;
+	};
 }
 
 export interface TransactionAttributes {
@@ -31,8 +36,8 @@ export interface TransactionAttributes {
 }
 
 export enum TransactionStatus {
-	held = 'HELD',
-	settled = 'SETTLED'
+	held = "HELD",
+	settled = "SETTLED",
 }
 
 export interface HoldInfoObject {

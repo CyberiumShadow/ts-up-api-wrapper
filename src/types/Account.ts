@@ -1,22 +1,22 @@
-import { MoneyObject, RelatedLink, SelfLink } from "./Common";
+import type { MoneyObject, RelatedLink, SelfLink } from "./Common";
 
 export interface AccountResource {
 	id: string;
-	type: 'accounts';
+	type: "accounts";
 	links?: SelfLink;
 	attributes: {
-		displayName: string
-		accountType: AccountTypeEnum
-		balance: MoneyObject
+		displayName: string;
+		accountType: AccountTypeEnum;
+		balance: MoneyObject;
 	};
 	relationships: {
 		transactions: {
-			links?: RelatedLink
-		}
+			links?: RelatedLink;
+		};
 	};
 }
 
 export enum AccountTypeEnum {
-	saver = 'SAVER',
-	transactional = 'TRANSACTIONAL'
+	saver = "SAVER",
+	transactional = "TRANSACTIONAL",
 }

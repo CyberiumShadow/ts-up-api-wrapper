@@ -1,35 +1,35 @@
 export interface NullableDataWithLink {
-    data: DataObject | null;
-    links?: RelatedLink
+	data: DataObject | null;
+	links?: RelatedLink;
 }
 
 export interface DataWithLink {
-    data: DataObject
-    links?: RelatedLink;
+	data: DataObject;
+	links?: RelatedLink;
 }
 
 export interface DataObject {
-    data: {
-        id: string;
-        type: string;
-    }
+	data: {
+		id: string;
+		type: string;
+	};
 }
 
 export interface MoneyObject {
-    currencyCode: string;
-    value: string;
-    valueInBaseUnits: number;
+	currencyCode: string;
+	value: string;
+	valueInBaseUnits: number;
 }
 
 export interface SelfLink {
-    self: string;
+	self: string;
 }
 
 export interface RelatedLink {
-    related: string;
+	related: string;
 }
 
 export interface IteratorLink {
-    prev: string | null;
-    next: string | null;
+	prev: string | null;
+	next: string | null;
 }
