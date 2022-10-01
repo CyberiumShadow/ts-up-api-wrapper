@@ -1,45 +1,25 @@
+import { DataObject, DataWithLink, RelatedLink, SelfLink } from "./Common";
+
 export interface WebhookResource {
     id: string;
     type: 'webhooks';
     attributes: WebhookAttributes;
-    links?: {
-        self: string;
-    };
+    links?: SelfLink
     relationships: {
         logs: {
-            links?: {
-                related: string;
-            };
+            links?: RelatedLink
         };
-    };
+    }
 };
 
 export interface WebhookEventResource {
     id: string;
     type: 'webhooks-events';
     attributes: WebhookEventAttributes;
-    links?: {
-        self: string;
-    };
+    links?: SelfLink
     relationships: {
-        webhook: {
-            links?: {
-                related: string;
-            };
-            data: {
-                type: string;
-                id: string;
-            };
-        };
-        transaction: {
-            links?: {
-                related: string;
-            };
-            data: {
-                type: string;
-                id: string;
-            };
-        };
+        webhook: DataWithLink
+        transaction: DataWithLink
     };
 };
 
@@ -47,28 +27,18 @@ export interface WebhookDeliveryLogResource {
     id: string;
     type: 'webhook-delivery-logs';
     attributes: WebhookDeliveryLogAttributes;
-    links?: {
-        self: string;
-    };
+    links?: SelfLink
     relationships: {
         webhookEvent: {
-            data: {
-                type: string;
-                id: string;
-            };
+            data: DataObject
         };
     };
 };
 
 export interface WebhookAttributes {
-	url: string;
-	description?: string;
+    url: string;
+    description?: string;
     secretKey?: string;
-    createdAt: Date;
-};
-
-export interface WebhookEventAttributes {
-    eventType: WebhookEventType;
     createdAt: Date;
 };
 
@@ -81,6 +51,11 @@ export interface WebhookDeliveryLogAttributes {
         body: string;
     } | null;
     deliveryStatus: WebhookDeliveryStatus;
+    createdAt: Date;
+};
+
+export interface WebhookEventAttributes {
+    eventType: WebhookEventType;
     createdAt: Date;
 };
 

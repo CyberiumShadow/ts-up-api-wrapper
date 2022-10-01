@@ -1,4 +1,5 @@
 import type { AccountResource } from './Account';
+import { IteratorLink } from './Common';
 import type { TransactionResource } from './Transaction';
 import type { WebhookResource, WebhookEventResource, WebhookDeliveryLogResource } from './Webhook';
 
@@ -9,10 +10,7 @@ export interface APIResponse {
 		id: string;
 		statusEmoji: string;
 	}
-	links?: {
-		prev: string | null;
-		next: string | null;
-	}
+	links?: IteratorLink
 }
 
 export interface ErrorObject {
