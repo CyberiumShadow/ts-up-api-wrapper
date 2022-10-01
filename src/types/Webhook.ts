@@ -61,7 +61,8 @@ export interface WebhookDeliveryLogResource {
 };
 
 export interface WebhookAttributes {
-    url: string;
+	url: string;
+	description?: string;
     secretKey?: string;
     createdAt: Date;
 };
