@@ -9,10 +9,8 @@ export interface DataWithLink {
 }
 
 export interface DataObject {
-	data: {
 		id: string;
 		type: string;
-	};
 }
 
 export interface MoneyObject {
