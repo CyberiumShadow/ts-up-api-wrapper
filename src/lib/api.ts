@@ -44,6 +44,15 @@ export const getCategory = async (id: string): Promise<APIResponse> => {
 	return response.json() as APIResponse;
 };
 
+export const getAllTags = async (): Promise<APIResponse> => {
+	// TODO: Implement pagination as per API
+	const response: Response = await fetch(`${ApiURL}/tags`, {
+		headers,
+	});
+
+	return response.json() as APIResponse;
+};
+
 export const getAllTransactions = async (): Promise<APIResponse> => {
 	// TODO: Implement pagination as per API
 	const response: Response = await fetch(`${ApiURL}/transactions`, {
