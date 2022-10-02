@@ -1,5 +1,7 @@
+export type Nullable<T> = T | null;
+
 export interface NullableDataWithLink {
-	data: DataObject | null;
+	data: Nullable<DataObject>;
 	links?: RelatedLink;
 }
 
@@ -9,10 +11,8 @@ export interface DataWithLink {
 }
 
 export interface DataObject {
-	data: {
 		id: string;
 		type: string;
-	};
 }
 
 export interface MoneyObject {
@@ -30,6 +30,6 @@ export interface RelatedLink {
 }
 
 export interface IteratorLink {
-	prev: string | null;
-	next: string | null;
+	prev: Nullable<string>;
+	next: Nullable<string>;
 }
