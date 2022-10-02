@@ -23,6 +23,27 @@ export const getAccount = async (id: string): Promise<APIResponse> => {
 	return response.json() as APIResponse;
 };
 
+export const getAllCategories = async (
+	filter?: string
+): Promise<APIResponse> => {
+	const response: Response = await fetch(
+		`${ApiURL}/categories${filter ? `?filter[parent]=${filter}` : ""}`,
+		{
+			headers,
+		}
+	);
+
+	return response.json() as APIResponse;
+};
+
+export const getCategory = async (id: string): Promise<APIResponse> => {
+	const response: Response = await fetch(`${ApiURL}/categories/${id}`, {
+		headers,
+	});
+
+	return response.json() as APIResponse;
+};
+
 export const getAllTransactions = async (): Promise<APIResponse> => {
 	// TODO: Implement pagination as per API
 	const response: Response = await fetch(`${ApiURL}/transactions`, {
@@ -47,6 +68,27 @@ export const getTransactionByAccount = async (
 	const response: Response = await fetch(
 		`${ApiURL}/accounts/${accountID}/transactions`,
 		{ headers }
+	);
+
+	return response.json() as APIResponse;
+};
+
+export const patchTransactionCategory = async (
+	transactionId: string,
+	categoryId: string
+) => {
+	const response: Response = await fetch(
+		`${ApiURL}/transactions/${transactionId}/relationships/category`,
+		{
+			method: "PATCH",
+			headers,
+			body: JSON.stringify({
+				data: {
+					type: "categories",
+					id: categoryId,
+				},
+			}),
+		}
 	);
 
 	return response.json() as APIResponse;
